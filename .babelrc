@@ -1,0 +1,18 @@
+{
+  "presets": [
+    ["env", {
+      "targets": {
+        "safari": 10,
+        "firefox": 52,
+        "chrome": 42,
+        "edge": 15
+      },
+      "exclude": [
+        "transform-regenerator"
+      ]
+    }]
+  ],
+  "plugins": [
+    "transform-object-rest-spread"
+  ]
+}

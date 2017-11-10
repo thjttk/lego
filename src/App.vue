@@ -1,12 +1,25 @@
 <template>
-  <h1>Hello world!</h1>
+  <render :node="currentPage" :themeColor="site.config.color" />
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
+import Render from './common/Render'
+
 export default {
   name: 'app',
-  mounted () {
-    console.log('hello')
+  components: {
+    Render
+  },
+  computed: {
+    ...mapState(['site', 'currentPage'])
+  },
+  methods: {
+    ...mapActions(['getSite'])
+  },
+  async mounted () {
+    await this.getSite()
   }
 }
 </script>
