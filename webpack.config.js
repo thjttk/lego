@@ -24,8 +24,23 @@ module.exports = {
   ],
   module: {
     rules: [
-      { test: /\.vue$/, loader: 'vue-loader' },
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ }
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          postcss: [
+            require('postcss-import')(),
+            require('postcss-mixins')(),
+            require('postcss-cssnext')()
+          ],
+          loaders: {}
+        }
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      }
     ]
   },
   resolve: {

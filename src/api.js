@@ -2,7 +2,7 @@ export function getSite (id = 1) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(oneSite)
-    }, 1000)
+    }, 200)
   })
 }
 
@@ -18,16 +18,18 @@ const oneSite = {
       name: 'Home page',
       children: [
         {
-          type: 'section',
+          type: 'the-section',
           config: {},
           children: [
             {
               type: 'paragraph',
-              config: {},
+              config: {
+                showSubTitle: true
+              },
               content: {
                 title: '大标题',
                 subTitle: '副标题',
-                detail: ''
+                detail: 'abc'
               }
             }
           ]
