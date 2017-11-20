@@ -28,18 +28,24 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          postcss: [
-            require('postcss-import')(),
-            require('postcss-mixins')(),
-            require('postcss-cssnext')()
-          ],
-          loaders: {}
+          postcss: [require('postcss-cssnext')()]
         }
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: ['vue-style-loader', 'css-loader']
       }
     ]
   },

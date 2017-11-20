@@ -5,7 +5,7 @@
         <h3>模块</h3>
         <draggable :options="dragOptions">
           <div v-for="widget in widgets" :key="widget.name" class="widget-card" :type="widget.placeholder.type">
-            <i class="icon"></i>
+            <i class="iconfont icon-lego"></i>
             <p>{{widget.name}}</p>
           </div>
         </draggable>
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+require('../assets/iconfont.css')
+
 import { mapState, mapActions } from 'vuex'
 import Draggable from 'vuedraggable'
 
@@ -67,13 +69,25 @@ html, body {
 
   &>aside {
     width: 200px;
-    border-right: 1px solid;
+    border-right: 1px solid #ddd;
 
-    .widget-card {
+    & .widget-card {
       border: 1px solid;
-      border-radius: 4px;
-      width: 20px;
-      height: 20px;
+      border-radius: 2px;
+      width: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: move;
+
+      &>i {
+        display: block;
+        font-size: 2em;
+      }
+      &>p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
     }
   }
   &>main {
