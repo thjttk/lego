@@ -14,6 +14,9 @@ export default {
 </script>
 
 <style scoped>
+.paragraph {
+  cursor: move;
+}
 .paragraph:hover {
   background: #ddd;
 }
